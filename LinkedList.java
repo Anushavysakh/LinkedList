@@ -1,6 +1,7 @@
 package com.day14linkedlist.bridglabz;
 
-public class LinkedList8<T> {
+public class LinkedList9 <T> {
+
 	public Node<T> head = null;
 	public Node<T> tail = null;
 
@@ -12,7 +13,6 @@ public class LinkedList8<T> {
 			return;
 		}
 		Node<T> newNode = new Node<T>(data);
-
 		newNode.next = head;
 		head = newNode;
 	}
@@ -65,20 +65,43 @@ public class LinkedList8<T> {
 		else
 			System.out.println("Element is not present in the list");
 	}
+	public void deleteNode (T key)  {
+        Node current = head, prev = null;
+ 
+        if (current != null && current.data == key) {
+            head = current.next; // Changed head
+            return;
+        }
+ 
+        while (current != null && current.data != key) {
+            prev = current;
+            current = current.next;
+        }
+ 
+        // If key was not present in linked list
+        if (current == null)
+            return;
+ 
+        // Unlink the node from linked list
+        prev.next = current.next;
+    }
+ 
+  
+	void size_of_list() {
+		int size = 0;
 
-	public void insertAfter(Node prev_node, int new_data) {
-		if (prev_node == null) {
-			System.out.println("The given previous node cannot be null");
+		if (head == null) {
+			System.out.println("Size of List" + size);
 			return;
 		}
 
-		Node new_node = new Node(new_data);
-
-		
-		new_node.next = prev_node.next;
-
-		/* 5. make next of prev_node as new_node */
-		prev_node.next = new_node;
+		Node current = head;
+		size = 1;
+		while (current.next != null) {
+			current = current.next;
+			size++;
+		}
+		System.out.println("Size of List" + size);
 	}
 
 }
