@@ -1,6 +1,6 @@
 package com.day14linkedlist.bridglabz;
 
-public class LinkedList5<T> {
+public class LinkedList6 <T>{
 	public Node<T> head = null;
 	public Node<T> tail = null;
 
@@ -19,20 +19,26 @@ public class LinkedList5<T> {
 	public boolean isEmpty() {
 		return head == null;
 	}
-	
+
 	void display() {
 		Node<T> current = head;
 
 		while (current != null) {
-			System.out.print(current.data + "->");
+			System.out.print(current.data + "--> ");
 			current = current.next;
 		}
 		System.out.println("null");
 	}
-	//Deleting first element of linked list
-	public T pop() {
-		  T current = head.data;
-	        head = head.next;
-	        return current;
+	
+	public void pop() {
+		 Node current = head;
+
+	      while(current.next.next != null) {
+	          current = current.next;
+	      }
+
+	      current.next = null;
+
+	  //    System.out.println(current);
 	}
 }
