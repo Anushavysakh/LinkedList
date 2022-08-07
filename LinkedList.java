@@ -1,6 +1,6 @@
 package com.day14linkedlist.bridglabz;
 
-public class LinkedList2<T> {
+public class LinkedList3<T> {
 	public Node<T> head = null;
 	public Node<T> tail = null;
 
@@ -19,7 +19,18 @@ public class LinkedList2<T> {
 	public boolean isEmpty() {
 		return head == null;
 	}
+//Adding element to last 
+	public void addLast(T data) {
+		if (isEmpty()) {
 
+			head = new Node(data);
+			tail = head;
+			return;
+		}
+		Node newNode = new Node(data);
+		tail.next = newNode;
+		tail = newNode;
+	}
 	
 	void display() {
 		Node<T> current = head;
@@ -32,3 +43,5 @@ public class LinkedList2<T> {
 	}
 
 }
+
+
