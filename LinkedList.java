@@ -1,6 +1,6 @@
 package com.day14linkedlist.bridglabz;
 
-public class LinkedList6 <T>{
+public class LinkedList7<T> {
 	public Node<T> head = null;
 	public Node<T> tail = null;
 
@@ -12,6 +12,7 @@ public class LinkedList6 <T>{
 			return;
 		}
 		Node<T> newNode = new Node<T>(data);
+		
 		newNode.next = head;
 		head = newNode;
 	}
@@ -41,4 +42,29 @@ public class LinkedList6 <T>{
 
 	  //    System.out.println(current);
 	}
-}
+	
+	 public void searchNode(T data) {  
+	        Node current = head;  
+	        int i = 1;  
+	        boolean flag = false;  
+	        //Checks whether list is empty  
+	        if(head == null) {  
+	            System.out.println("List is empty");  
+	        }  
+	        else {  
+	            while(current != null) {  
+	                if(current.data == data) {  
+	                    flag = true;  
+	                    break;  
+	                }  
+	                i++;  
+	                current = current.next;  
+	            }  
+	        }  
+	        if(flag)  
+	             System.out.println("Element is present in the list at the position : " + i);  
+	        else  
+	             System.out.println("Element is not present in the list");  
+	    }  
+	}
+
